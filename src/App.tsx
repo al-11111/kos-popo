@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { ToastContainer } from './components/ui/Toast';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -26,7 +26,7 @@ import { DashboardPenghuni } from './pages/penghuni/DashboardPenghuni';
 export default function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
+      <HashRouter>
         <ToastContainer />
         <Routes>
           {/* Section 5: Route "/" langsung redirect ke "/login" */}
@@ -126,7 +126,7 @@ export default function App() {
           {/* Fallback ke /login */}
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AppProvider>
   );
 }
