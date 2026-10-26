@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Light Mode Tokens */
+    --bg-page: #F7F5F0;
+    --bg-surface: #FFFFFF;
+    --border-color: #E6E2D8;
+    --text-main: #1F2421;
+    --text-muted: #6B706B;
+    --accent: #2F6B57;
+    --accent-hover: #265A49;
+    --accent-subtle: #E6F0EB;
+  }
+
+  .dark {
+    /* Dark Mode Tokens */
+    --bg-page: #151816;
+    --bg-surface: #1D211F;
+    --border-color: #2B302D;
+    --text-main: #E8EAE6;
+    --text-muted: #A0A6A0;
+    --accent: #5FAE92;
+    --accent-hover: #73C2A7;
+    --accent-subtle: #1C2D25;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-page);
+    color: var(--text-main);
+  }
+}
+
+/* Subtle, unobtrusive scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5D1C6;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3B423E;
+}
+
+/* Poin 22: Dukungan prefers-reduced-motion di CSS global (matikan transisi dan animasi) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
